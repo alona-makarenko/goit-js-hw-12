@@ -16,3 +16,212 @@
 @import url('./badges.css');
 @import url('./back-link.css');
 @import url('./footer.css');
+
+/* Загальні стилі */
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #242424;
+  background-color: rgba(255, 255, 255, 0.87);
+}
+
+/* Форма */
+form {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  text-align: start;
+}
+
+input {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  padding: 8px 16px;
+  transition: 0.3s;
+}
+
+input:focus {
+  outline: 1px solid #808080;
+}
+
+button {
+  display: block;
+  border-radius: 8px;
+  padding: 8px 16px;
+  background-color: #4e75ff;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #6c8cff;
+}
+
+button:disabled {
+  background: #cfcfcf;
+  color: #989898;
+  cursor: auto;
+}
+
+/* Лоадер */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+  min-height: 60px;
+}
+
+.hide {
+  display: none !important;
+}
+
+.ball-spin-fade-loader {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
+.ball-spin-fade-loader > span {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4e75ff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg) translate(0, -18px);
+  animation: ball-fade 1s linear infinite;
+}
+
+/* Розподіл 8 кульок по колу */
+.ball-spin-fade-loader > span:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(0deg) translate(0, -18px);
+  animation-delay: -0s;
+}
+.ball-spin-fade-loader > span:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(45deg) translate(0, -18px);
+  animation-delay: -0.125s;
+}
+.ball-spin-fade-loader > span:nth-child(3) {
+  transform: translate(-50%, -50%) rotate(90deg) translate(0, -18px);
+  animation-delay: -0.25s;
+}
+.ball-spin-fade-loader > span:nth-child(4) {
+  transform: translate(-50%, -50%) rotate(135deg) translate(0, -18px);
+  animation-delay: -0.375s;
+}
+.ball-spin-fade-loader > span:nth-child(5) {
+  transform: translate(-50%, -50%) rotate(180deg) translate(0, -18px);
+  animation-delay: -0.5s;
+}
+.ball-spin-fade-loader > span:nth-child(6) {
+  transform: translate(-50%, -50%) rotate(225deg) translate(0, -18px);
+  animation-delay: -0.625s;
+}
+.ball-spin-fade-loader > span:nth-child(7) {
+  transform: translate(-50%, -50%) rotate(270deg) translate(0, -18px);
+  animation-delay: -0.75s;
+}
+.ball-spin-fade-loader > span:nth-child(8) {
+  transform: translate(-50%, -50%) rotate(315deg) translate(0, -18px);
+  animation-delay: -0.875s;
+}
+
+/* Анімація мерехтіння */
+@keyframes ball-fade {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+/* gallery */
+.gallery {
+  display: grid;
+  gap: 24px;
+  max-width: max-content;
+  margin-top: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.gallery-item {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  grid-template-rows: repeat(2, auto);
+  border: 1px solid #808080;
+}
+
+.gallery-item .link {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+}
+
+.gallery-item .link img {
+  aspect-ratio: 9/5;
+  object-fit: cover;
+}
+
+.gallery-item .information {
+  grid-row: 2 / 3;
+  text-align: center;
+  background: #fff;
+  padding-top: 4px;
+}
+
+.gallery-item .information h4 {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33333;
+  letter-spacing: 0.04em;
+}
+
+.gallery-item .information p {
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+}
+
+.gallery-item .like {
+  grid-column: 1 / 2;
+}
+.gallery-item .views {
+  grid-column: 2 / 3;
+}
+.gallery-item .comments {
+  grid-column: 3 / 4;
+}
+.gallery-item .downloads {
+  grid-column: 4 / 5;
+}
+
+.button-more {
+  margin: 0 auto;
+  margin-top: 20px;
+}
